@@ -1,0 +1,83 @@
+@import "tailwindcss";
+
+@theme {
+  --color-surface: #0e131e;
+  --color-surface-dim: #0e131e;
+  --color-surface-bright: #343946;
+  --color-surface-container-lowest: #090e19;
+  --color-surface-container-low: #161b27;
+  --color-surface-container: #1b1f2b;
+  --color-surface-container-high: #252a36;
+  --color-surface-container-highest: #303541;
+  --color-on-surface: #dee2f2;
+  --color-on-surface-variant: #bacbb9;
+  --color-outline: #849584;
+  --color-outline-variant: #3b4a3d;
+  --color-primary: #f5fff2;
+  --color-on-primary: #003918;
+  --color-primary-container: #39ff88;
+  --color-primary-fixed-dim: #00e473;
+  --color-on-primary-container: #007236;
+  --color-secondary: #7bd0ff;
+  --color-secondary-container: #00a6e0;
+  --color-tertiary: #fffbff;
+  --color-tertiary-container: #ffdc84;
+  --color-tertiary-fixed-dim: #e4c36e;
+  --color-error: #ffb4ab;
+
+  --font-headline-xl: "Space Grotesk", sans-serif;
+  --font-headline-lg: "Space Grotesk", sans-serif;
+  --font-headline-md: "Space Grotesk", sans-serif;
+  --font-body-lg: "Inter", sans-serif;
+  --font-body-md: "Inter", sans-serif;
+  --font-body-sm: "Inter", sans-serif;
+  --font-label-code: "JetBrains Mono", monospace;
+  --font-label-tag: "JetBrains Mono", monospace;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    color-scheme: dark;
+  }
+
+  body {
+    background-color: #0e131e;
+    color: #dee2f2;
+    font-family: var(--font-body-md);
+    overflow-x: hidden;
+  }
+
+  /* Accessible focus states */
+  :focus-visible {
+    outline: 2px solid #39ff88;
+    outline-offset: 2px;
+  }
+}
+
+/* Cyber ambient grid */
+.cyber-grid-bg {
+  background-image: 
+    linear-gradient(to right, rgba(59, 74, 61, 0.12) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(59, 74, 61, 0.12) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+/* Subtle glow effects */
+.glow-primary {
+  box-shadow: 0 0 24px rgba(57, 255, 136, 0.2);
+}
+
+.glow-primary-hover:hover {
+  box-shadow: 0 0 32px rgba(57, 255, 136, 0.35);
+}
+
+/* Animation utilities respecting reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
